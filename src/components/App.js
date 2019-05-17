@@ -70,19 +70,21 @@ class App extends Component {
     }
 
     render() {
-        const highScore = this.getHighScore();
+        const providerValue = {
+            players: this.state.players,
+            highScore: this.getHighScore(),
+            actions: {
+                changeScore: this.handleScoreChange,
+                removePlayer: this.handleRemovePlayer,
+                addPlayer: this.handleAddPlayer
+            }
+        };
         return (
-            <Provider value={this.state.players}>
+            <Provider value={providerValue}>
                 <div className="scoreboard">
                     <Header />
-
-                    <PlayerList
-                        highScore={highScore}
-                        changeScore={this.handleScoreChange}
-                        removePlayer={this.handleRemovePlayer}
-                    />
-
-                    <AddPlayerForm addPlayer={this.handleAddPlayer} />
+                    <PlayerList />
+                    <AddPlayerForm />
                 </div>
             </Provider>
         );
