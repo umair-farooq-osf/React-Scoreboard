@@ -20,6 +20,6 @@ Header.propTypes = {
 
 Header.defaultProps = {
     title: 'Scoreboard'
-}
+};
 
 export default Header;
